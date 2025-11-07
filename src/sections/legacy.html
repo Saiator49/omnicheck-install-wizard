@@ -1,0 +1,67 @@
+<div class="section active" id="legacySection">
+  <div class="step active">
+    <h2>Step 1: Create Legacy-DB Folder &amp; Prepare Backup Script</h2>
+    <p><b>Purpose:</b> Set up a dedicated workspace for restoring your legacy database.</p>
+    <ul>
+      <li>Navigate to <b>C:\Program Files\</b></li>
+      <li>Create a new folder named <b>Legacy-DB</b></li>
+      <li>Locate <b>legacy_backupscript.bat</b> (e.g., <b>C:\Program Files\OMNICheck\Support\</b>)</li>
+      <li>Copy it into <b>C:\Program Files\Legacy-DB\</b></li>
+    </ul>
+    <div class="screenshot">
+      <img src="src/Images/12.png" alt="Create Legacy-DB folder">
+    </div>
+    <p class="note">Keep both the script and backup file in this folder for easy restoration later.</p>
+  </div>
+
+  <div class="step">
+    <h2>Step 2: Create a .backup File Using pgAdmin</h2>
+    <p><b>Purpose:</b> Export your previous (legacy) database used until now from the older PostgreSQL system.</p>
+    <ul>
+      <li>On your legacy machine, open <b>pgAdmin 4</b></li>
+      <li>Right-click your <b>previous (legacy) database</b> → <b>Backup…</b></li>
+      <li>Choose <b>Custom (.backup)</b> as the format</li>
+      <li>Save as <b>C:\Program Files\Legacy-DB\OMNICheck_Legacy.backup</b></li>
+      <li>Click <b>Backup</b> and wait for confirmation</li>
+    </ul>
+    <div class="screenshot">
+      <img src="src/Images/13.png" alt="pgAdmin backup dialog selecting Custom .backup format">
+    </div>
+    <p class="note">You now have a portable <b>.backup</b> file ready for migration.</p>
+  </div>
+
+  <div class="step">
+    <h2>Step 3: Restore the Backup Using the Script</h2>
+    <p><b>Purpose:</b> Restore the legacy data into the new PostgreSQL 17 instance.</p>
+    <ul>
+      <li>Copy <b>OMNICheck_Legacy.backup</b> into <b>C:\Program Files\Legacy-DB\</b></li>
+      <li>Double-click <b>legacy_backupscript.bat</b> to run it</li>
+      <li>The script automatically begins restoration</li>
+      <li>Wait for <b>"Restore completed successfully."</b></li>
+    </ul>
+    <div class="screenshot">
+      <img src="src/Images/14.png" alt="Running legacy_backupscript.bat restoring database">
+    </div>
+    <p class="warning">Do not close the window while the process runs.</p>
+  </div>
+
+  <div class="step">
+    <h2>Step 4: Import the Legacy Data into OMNICheck</h2>
+    <p><b>Purpose:</b> Import the restored database into the OMNICheck software.</p>
+    <ol>
+      <li>Open <b>OMNICheck NFPA Start Menu.vi</b></li>
+      <li>Verify <b>OMNI Connected</b> (green light)</li>
+      <li>Click the <b>⚙️</b> next to <b>Active Database</b> to open configuration</li>
+      <li>In <b>Legacy Database</b>, enter the restored database name (e.g., <b>legacy_omnicheck_db</b>)</li>
+      <li>Ensure <b>Active Asset Database</b> points to your current DB (e.g., <b>oc_test1</b>)</li>
+      <li>Click <b>Import Database</b> and wait for success</li>
+    </ol>
+    <div class="screenshot">
+      <img src="src/Images/Screenshot 2025-10-20 142903.png" alt="OMNICheck main screen">
+    </div>
+    <div class="screenshot">
+      <img src="src/Images/Screenshot 2025-10-20 142903.png" alt="Database configuration">
+    </div>
+    <p class="note">Your OMNICheck installation now includes all legacy data.</p>
+  </div>
+</div>

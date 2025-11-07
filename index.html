@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OMNIcheck Installation Wizard</title>
+  <link rel="stylesheet" href="src/css/styles.css"/>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M09YL1Z3TN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M09YL1Z3TN');
+  </script>
+</head>
+<body>
+
+  <!-- Welcome -->
+<div id="welcome">
+  <div>
+    <img src="src/Images/Logo.gif" alt="Company Logo" class="logo-anim" />
+    <h1>OMNIcheck Installation Guide</h1>
+    <p>
+      This wizard guides you through Hardware setup, Contact Support, 
+      Pre-Install warning, Legacy migration, and Software installation.
+    </p>
+    <button id="startBtn" class="start-btn">Start Installation Guide</button>
+    </button>
+  </div>
+</div>
+
+
+  <!-- Wizard (shell only) -->
+  <div class="wizard" id="wizard" style="display:none">
+    <div class="wizard-header">
+      <h2>OMNIcheck Installation Wizard</h2>
+      <img src="src/Images/Logo.jpeg" alt="Company Logo" class="logo-inline"/>
+    </div>
+
+    <div class="section-tabs">
+      <button class="tab active" data-section="hardware"   id="tabHardware">Hardware Setup</button>
+      <button class="tab"         data-section="contact"    id="tabContact">Contact Support</button>
+      <button class="tab"         data-section="preinstall" id="tabPreinstall">Pre-Installation Warning</button>
+      <button class="tab"         data-section="software"   id="tabSoftware">Software Installation</button>
+      <button class="tab"         data-section="legacy"     id="tabLegacy">Legacy Migration</button>
+    </div>
+
+    <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+    <div id="sectionRoot"></div>
+
+    <div class="nav-buttons">
+      <button class="prev" id="prevBtn">Previous</button>
+      <button class="next" id="nextBtn">Next</button>
+    </div>
+  </div>
+
+ <script src="/src/js/app.js?v=fix-sections-path-1" defer></script>
+
+</body>
+</html>
