@@ -1,14 +1,32 @@
-<div class="section active" id="preinstallSection">
+<div class="section" id="preinstallSection">
   <div class="step active">
     <div class="warning-card">
       <h2>⚠️ Important Notice Before Software Installation</h2>
       <p class="muted"><b>Please read this carefully before proceeding.</b></p>
       <ul>
         <li>Installing or reinstalling <b>PostgreSQL</b> on a machine that already has an existing PostgreSQL installation may <b>overwrite</b> or <b>corrupt existing databases</b>.</li>
-        <li>If you have an existing other PostgreSQL database, make sure you have created a <b>backup (.backup file)</b> using <b>pgAdmin</b> before continuing.</li>
+        <li>If you have an existing PostgreSQL database, make sure you have created a <b>backup (.backup file)</b> using <b>pgAdmin</b> before continuing.</li>
         <li>Store your backup safely in a separate folder (recommended: <b>C:\Backup</b>).</li>
-        <li>Only continue when your backup is confirmed and verified.</li>
+        <li><b>Only continue when your backup is confirmed and verified.</b></li>
       </ul>
     </div>
   </div>
-</div>
+
+ <!-- Step  -->
+  <div class="step">
+    <h2>Step 1 : Create a .backup File Using pgAdmin</h2>
+    <p><b>Purpose:</b> Export your previous (legacy) database used until now from the older PostgreSQL system.</p>
+    <ul>
+      <li>On your legacy machine, open <b>pgAdmin 4</b></li>
+      <li>Right-click your <b>previous (legacy) database</b> → <b>Backup…</b></li>
+      <li>Click the folder icon on the right side of the filename field
+      <li>Save as <b>C:\omnicheck\Legacy\Your_legacydbname_legacy.backup</b></li>
+      <li>Click <b>Backup</b> and wait for confirmation</li>
+    </ul>
+    <div class="screenshot">
+      <!-- Replace with your real image file (pgAdmin Backup dialog) -->
+      <img src="Images/13.png" alt="pgAdmin backup dialog selecting Custom .backup format">
+    </div>
+    <p class="note">You now have a portable <b>.backup</b> file ready for migration.</p>
+  </div>
+  </div>
